@@ -13,6 +13,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  padding: 15px;
 }
 
 .form-container {
@@ -21,6 +22,7 @@ body {
   border-radius: 10px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   width: 350px;
+  max-width: 100%;
   text-align: center;
   animation: fadeIn 0.6s ease;
 }
@@ -29,6 +31,7 @@ body {
   margin-bottom: 20px;
   color: #333;
   font-weight: 600;
+  font-size: 22px;
 }
 
 .form-box .input-group {
@@ -44,6 +47,7 @@ body {
 .form-box .input-group i {
   margin-right: 10px;
   color: #666;
+  font-size: 16px;
 }
 
 .form-box .input-group input {
@@ -103,4 +107,35 @@ body {
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(-10px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+/* RESPONSIVE */
+@media (max-width: 480px) {
+  .form-container {
+    width: 100%;
+    padding: 20px;
+    border-radius: 8px;
+  }
+
+  .form-container h2 {
+    font-size: 18px;
+  }
+
+  .form-box .input-group {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .form-box .input-group i {
+    margin: 0 0 8px 0;
+  }
+
+  .btn {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .form-box p {
+    font-size: 13px;
+  }
 }

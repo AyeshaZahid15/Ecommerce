@@ -36,3 +36,36 @@ p {
 p strong {
     color: #ff6600;
 }
+
+
+/* RESPONSIVE */
+@media screen and (max-width: 768px) {
+    .container {
+        max-width: 90%;
+        padding: 20px;
+    }
+    h1 {
+        font-size: 1.7rem;
+    }
+    p {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+    .container {
+        width: 100%;
+        padding: 15px;
+        border-radius: 8px;
+    }
+    h1 {
+        font-size: 1.5rem;
+    }
+    p {
+        font-size: 0.95rem;
+        line-height: 1.4;
+    }
+}

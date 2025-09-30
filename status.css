@@ -65,3 +65,50 @@ p em {
     color: #666;
     text-align: center;
 }
+
+
+/* RESPONSIVE */
+@media screen and (max-width: 768px) {
+    .container {
+        max-width: 95%;
+        padding: 20px;
+    }
+    h1 {
+        font-size: 1.7rem;
+    }
+    p {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+    p i {
+        font-size: 1rem;
+        padding: 8px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    body {
+        padding: 10px;
+        align-items: flex-start;
+    }
+    .container {
+        width: 100%;
+        padding: 15px;
+        border-radius: 8px;
+    }
+    h1 {
+        font-size: 1.4rem;
+        margin-bottom: 15px;
+    }
+    p {
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+    p i {
+        font-size: 0.9rem;
+        padding: 6px;
+    }
+    p em {
+        font-size: 0.85rem;
+    }
+}

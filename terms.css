@@ -26,6 +26,7 @@ h1 {
 p {
     margin: 15px 10px;
     font-size: 1.05rem;
+    line-height: 1.7;
 }
 
 ul {
@@ -43,4 +44,49 @@ ul li {
 
 strong {
     color: #ff6600;
+}
+
+
+/* RESPONSIVE */
+@media screen and (max-width: 768px) {
+    .container {
+        max-width: 95%;
+        margin: 20px auto;
+        padding: 15px 20px;
+    }
+    h1 {
+        font-size: 1.7rem;
+    }
+    p {
+        font-size: 1rem;
+    }
+    ul li {
+        font-size: 0.95rem;
+        padding: 8px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .container {
+        width: 95%;
+        margin: 15px auto;
+        padding: 12px 15px;
+        border-radius: 8px;
+    }
+    h1 {
+        font-size: 1.4rem;
+        margin-bottom: 15px;
+    }
+    p {
+        font-size: 0.9rem;
+        margin: 10px 5px;
+    }
+    ul {
+        padding-left: 15px;
+    }
+    ul li {
+        font-size: 0.9rem;
+        padding: 7px;
+        border-left: 4px solid #ff6600;
+    }
 }
