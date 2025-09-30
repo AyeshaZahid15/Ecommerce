@@ -25,7 +25,7 @@ onAuthStateChanged(auth, (user) => {
     userEmailSpan.textContent = `Welcome, ${user.email}`;
     logoutBtn.style.display = "inline-block";
   } else {
-    window.location.href = "login.html";
+    window.location.href = "index.html";
   }
 });
 
@@ -33,7 +33,7 @@ logoutBtn.addEventListener("click", async () => {
   try {
     await signOut(auth);
     alert("Logged out successfully!");
-    window.location.href = "login.html"; // redirect back to login page
+    window.location.href = "index.html"; // redirect back to login page
   } catch (error) {
     alert("Error logging out: " + error.message);
   }
