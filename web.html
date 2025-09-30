@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecommerce Website - Shopping Cart</title>
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
+</head>
+<body>
+    
+    <header>
+        <a href="#" class="logo">Ecommerce</a>
+        <div class="header-right">
+            <span id="userEmail" class="welcome-text">Welcome, Guest</span>
+            <button id="logoutBtn" class="logout-btn" style="display:none;">Logout</button>
+
+            <div id="cart-icon">
+                <i class="ri-shopping-bag-line"></i>
+                <span class="cart-item-count"></span>
+            </div>
+        </div>
+    </header>
+
+    <div class="cart">
+        <h2 class="cart-title">Your Cart</h2>
+        <div class="cart-content">
+            <!-- <div class="cart-box">
+                <img src="images/product 1.jpeg" class="cart-img">
+                <div class="cart-detail">
+                    <h2 class="cart-product-title">Stripe Cropped Polo Tee - Grey</h2>
+                    <span class="cart-price">$100</span>
+                    <div class="cart-quantity">
+                        <button id="decrement">-</button>
+                        <span class="number">1</span>
+                        <button id="increment">+</button>
+                    </div>
+                </div>
+                <i class="ri-delete-bin-line cart-remove"></i>
+            </div> -->
+        </div>
+        <div class="total">
+            <div class="total-title">Total</div>
+            <div class="total-price">$0</div>
+        </div>
+        <button class="btn-buy">Buy Now</button>
+        <i class="ri-close-line" id="cart-close"></i>
+    </div>
+
+    <section class="shop">
+        <h1 class="section-title">Shop Products</h1>
+
+        <div class="gender-buttons">
+            <button id="femaleBtn" class="active">Female</button>
+            <button id="maleBtn">Male</button>
+        </div>
+
+        <div class="product-content">
+            <!-- FEMALE PRODUCTS -->
+            <div class="product-box" data-gender="female">
+                <div class="img-box">
+                    <img src="images/product 1.jpeg">
+                </div>
+                <h2 class="product-title">Women's Stripe Cropped Polo Tee - Grey</h2>
+                <div class="price-and-cart">
+                    <span class="price">$100</span>
+                    <i class="ri-shopping-bag-line add-cart"></i>
+                </div>
+            </div>
+
+            <div class="product-box" data-gender="female">
+                <div class="img-box">
+                    <img src="images/product 2.jpeg">
+                </div>
+                <h2 class="product-title">Women's Polo shirt</h2>
+                <div class="price-and-cart">
+                    <span class="price">$90</span>
+                    <i class="ri-shopping-bag-line add-cart"></i>
+                </div>
+            </div>
+
+            <div class="product-box" data-gender="female">
+                <div class="img-box">
+                    <img src="images/product 3.jpeg" data-gender="female">
+                </div>
+                <h2 class="product-title">Women's Casual Loose shirt</h2>
+                <div class="price-and-cart">
+                    <span class="price">$50</span>
+                    <i class="ri-shopping-bag-line add-cart"></i>
+                </div>
+            </div>
+
+            <div class="product-box" data-gender="female">
+                <div class="img-box">
+                    <img src="images/product 4.jpeg" data-gender="female">
+                </div>
+                <h2 class="product-title">Women's Classic White Shirt</h2>
+                <div class="price-and-cart">
+                    <span class="price">$70</span>
+                    <i class="ri-shopping-bag-line add-cart"></i>
+                </div>
+            </div>
+
+            <div class="product-box" data-gender="female">
+                <div class="img-box">
+                    <img src="images/product 5.jpeg">
+                </div>
+                <h2 class="product-title">Women's Graphic Drop Shoulder Tee</h2>
+                <div class="price-and-cart">
+                    <span class="price">$20</span>
+                    <i class="ri-shopping-bag-line add-cart"></i>
+                </div>
+            </div>
+
+            <div class="product-box" data-gender="female">
+                <div class="img-box">
+                    <img src="images/product 6.jpeg">
+                </div>
+                <h2 class="product-title">Women's Oversized Hoodie</h2>
+                <div class="price-and-cart">
+                    <span class="price">$199</span>
+                    <i class="ri-shopping-bag-line add-cart"></i>
+                </div>
+            </div>
+
+            <div class="product-box" data-gender="female">
+                <div class="img-box">
+                    <img src="images/product 7.jpeg">
+                </div>
+                <h2 class="product-title">Women's Brown Leather Jacket</h2>
+                <div class="price-and-cart">
+                    <span class="price">$300</span>
+                    <i class="ri-shopping-bag-line add-cart"></i>
+                </div>
+            </div>
+
+            <div class="product-box" data-gender="female">
+                <div class="img-box">
+                    <img src="images/product 8.jpeg">
+                </div>
+                <h2 class="product-title">Women's Formal Blazzer Outfit</h2>
+                <div class="price-and-cart">
+                    <span class="price">$500</span>
+                    <i class="ri-shopping-bag-line add-cart"></i>
+                </div>
+            </div>
+
+            <div class="product-box" data-gender="female">
+                <div class="img-box">
+                    <img src="images/product 9.jpeg">
+                </div>
+                <h2 class="product-title">Women's Blazzer</h2>
+                <div class="price-and-cart">
+                    <span class="price">$150</span>
+                    <i class="ri-shopping-bag-line add-cart"></i>
+                </div>
+            </div>
+
+            <!-- MALE PRODUCTS -->
+            <div class="product-box" data-gender="male">
+                <div class="img-box">
+                    <img src="images/product 10.jpeg">
+                </div>
+                <h2 class="product-title">Men's Casual Shirt</h2>
+                <div class="price-and-cart">
+                    <span class="price">$50</span>
+                    <i class="ri-shopping-bag-line add-cart"></i>
+                </div>
+            </div>
+            <div class="product-box" data-gender="male">
+                <div class="img-box">
+                    <img src="images/product 11.jpeg">
+                </div>
+                <h2 class="product-title">Men's Up Down Zip SweatShirt</h2>
+                <div class="price-and-cart">
+                    <span class="price">$100</span>
+                    <i class="ri-shopping-bag-line add-cart"></i>
+                </div>
+            </div>
+            <div class="product-box" data-gender="male">
+                <div class="img-box">
+                    <img src="images/product 12.jpeg">
+                </div>
+                <h2 class="product-title">Men's Polo Shirt</h2>
+                <div class="price-and-cart">
+                    <span class="price">$150</span>
+                    <i class="ri-shopping-bag-line add-cart"></i>
+                </div>
+            </div>
+            <div class="product-box" data-gender="male">
+                <div class="img-box">
+                    <img src="images/product 13.jpeg">
+                </div>
+                <h2 class="product-title">Men's Oversized T-Shirt</h2>
+                <div class="price-and-cart">
+                    <span class="price">$30</span>
+                    <i class="ri-shopping-bag-line add-cart"></i>
+                </div>
+            </div>
+            <div class="product-box" data-gender="male">
+                <div class="img-box">
+                    <img src="images/product 14.jpeg">
+                </div>
+                <h2 class="product-title">Men's Baggy Jeans</h2>
+                <div class="price-and-cart">
+                    <span class="price">$100</span>
+                    <i class="ri-shopping-bag-line add-cart"></i>
+                </div>
+            </div>
+            <div class="product-box" data-gender="male">
+                <div class="img-box">
+                    <img src="images/product 15.jpeg">
+                </div>
+                <h2 class="product-title">Men's Oversized Hoodie</h2>
+                <div class="price-and-cart">
+                    <span class="price">$120</span>
+                    <i class="ri-shopping-bag-line add-cart"></i>
+                </div>
+            </div>
+            <div class="product-box" data-gender="male">
+                <div class="img-box">
+                    <img src="images/product 16.jpeg">
+                </div>
+                <h2 class="product-title">Men's Leather Jacket</h2>
+                <div class="price-and-cart">
+                    <span class="price">$200</span>
+                    <i class="ri-shopping-bag-line add-cart"></i>
+                </div>
+            </div>
+            <div class="product-box" data-gender="male">
+                <div class="img-box">
+                    <img src="images/product 17.jpeg">
+                </div>
+                <h2 class="product-title">Men's Casual Coat</h2>
+                <div class="price-and-cart">
+                    <span class="price">$150</span>
+                    <i class="ri-shopping-bag-line add-cart"></i>
+                </div>
+            </div>
+            <div class="product-box" data-gender="male">
+                <div class="img-box">
+                    <img src="images/product 18.jpeg">
+                </div>
+                <h2 class="product-title">Men' Blazzer Jacket with Shirt</h2>
+                <div class="price-and-cart">
+                    <span class="price">$300</span>
+                    <i class="ri-shopping-bag-line add-cart"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-top">
+        <div class="footer-links">
+            <a href="terms.html">Terms of Service</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="status.html">Status</a>
+        </div>
+
+        <div class="footer-social">
+            <span>Stalk us here :</span>
+            <a href="https://facebook.com" target="_blank"><i class="ri-facebook-circle-fill"></i></a>
+            <a href="https://twitter.com" target="_blank"><i class="ri-twitter-x-line"></i></a>
+            <a href="https://instagram.com" target="_blank"><i class="ri-instagram-fill"></i></a>
+            <a href="https://linkedin.com" target="_blank"><i class="ri-linkedin-fill"></i></a>
+            <a href="https://youtube.com" target="_blank"><i class="ri-youtube-fill"></i></a>
+        </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; All rights reserved, Ecommerce inc. 2025</p>
+            <span class="footer-made">&#127809 Built in Pakistan</span>
+        </div>
+    </footer>
+
+
+    <script src="script.js" type="module"></script>
+</body>
+</html>

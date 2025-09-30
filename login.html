@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="login.css">
+   
+  <!-- Icons link -->
+  <script src="https://kit.fontawesome.com/b3f9167fcd.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Login</h2>
+    <form class="form-box">
+
+      <!-- Email -->
+      <div class="input-group">
+        <i class="fas fa-envelope"></i>
+        <input type="email" placeholder="Email" required>
+      </div>
+
+      <!-- Password -->
+      <div class="input-group">
+        <i class="fas fa-lock"></i>
+        <input type="password" placeholder="Password" required>
+      </div>
+
+      <!-- Button -->
+      <button type="submit" class="btn">Login</button>
+
+      <!-- Forgot Password -->
+      <p class="extra-links">
+        <a href="reset.html" id="forgotPassword">Forgot Password?</a>
+      </p>
+
+      <!-- Register -->
+      <p class="extra-links">
+        Don't have an account?  
+        <a href="register.html">Create an Account</a>
+      </p>
+    </form>
+  </div>
+
+  <script src="login.js" type="module"></script>
+</body>
+</html>
