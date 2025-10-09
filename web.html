@@ -9,9 +9,12 @@
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
 </head>
 <body>
-    
+
     <header>
         <a href="#" class="logo">Ecommerce</a>
+        
+        <li id="adminLink"><a href="admin.html">Chats</a></li>
+
         <div class="header-right">
             <span id="userEmail" class="welcome-text">Welcome, Guest</span>
             <button id="logoutBtn" class="logout-btn" style="display:none;">Logout</button>
@@ -276,6 +279,27 @@
         </div>
     </footer>
 
+    <div class="chat-icon" id="btn"><i class="ri-chat-1-fill"></i></div>
+    <div class="container" id="container">
+        <div class="chat">
+            <h2><i class="ri-message-2-fill"></i>Chat Support</h2>
+            <div class="chat-box" id="chat-box">
+                <div class="top">
+                    <h3>You</h3>
+                </div>
+                <p>Hi! can I help you</p>
+                <div class="input-area">
+                    <input type="text" id="message" class="text2" placeholder="Type a message...">
+                    <button class="btn1" id="submit"><i class="ri-send-plane-fill"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="notificationBox" class="notification">
+        <p id="notificationMessage"></p>
+        <button onclick="closeNotification()">Close</button>
+    </div>
 
     <script src="script.js" type="module"></script>
 </body>

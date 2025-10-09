@@ -1,5 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
 import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
+import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-database.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDL8W5w1H1_eGGq4snsu9gdcr58w6glBFA",
@@ -8,11 +9,13 @@ const firebaseConfig = {
   storageBucket: "ecommerce-website-6d679.firebasestorage.app",
   messagingSenderId: "500732378994",
   appId: "1:500732378994:web:e5ed90f21559f96d55e7eb",
-  measurementId: "G-ZXCBZ8FQMZ"
+  measurementId: "G-ZXCBZ8FQMZ",
+  databaseURL: "https://ecommerce-website-6d679-default-rtdb.firebaseio.com/"
 };
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+const db = getDatabase(app);
 
 
 const form = document.querySelector(".form-box");
@@ -42,6 +45,14 @@ form.addEventListener("submit", async (event) => {
   try{
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
     const user = userCredential.user;
+
+    const userRef = ref(db, "users/" + user.uid);
+    await set(userRef, {
+      fullName: fullName,
+      email: email,
+      uid: user.uid,
+      joinedAt: new Date().toISOString()
+    });
 
     alert("Registration successful! Welcome, "+ fullName);
     window.location.href = "index.html";  //Redirect to login page
