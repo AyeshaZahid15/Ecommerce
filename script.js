@@ -248,7 +248,7 @@ onAuthStateChanged(auth, (user) => {
     let senderName = "Anonymous";
 
     if (snap.exists()) {
-      senderName = snap.val().firstName || "Anonymous";
+      senderName = snap.val().fullName || "Anonymous";
     }
 
     const chatUserRef = ref(db, "chats/" + user.uid);

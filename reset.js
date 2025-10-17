@@ -8,7 +8,8 @@ const firebaseConfig = {
   storageBucket: "ecommerce-website-6d679.firebasestorage.app",
   messagingSenderId: "500732378994",
   appId: "1:500732378994:web:e5ed90f21559f96d55e7eb",
-  measurementId: "G-ZXCBZ8FQMZ"
+  measurementId: "G-ZXCBZ8FQMZ",
+  databaseURL: "https://ecommerce-website-6d679-default-rtdb.firebaseio.com/"
 };
 
 const app = initializeApp(firebaseConfig);
