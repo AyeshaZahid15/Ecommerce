@@ -34,8 +34,7 @@ const userList = document.getElementById("userList");
 const chatBox = document.getElementById("chatBox");
 const messageInput = document.getElementById("messageInput");
 const sendBtn = document.getElementById("sendBtn");
-const backBtn = document.getElementById("back"); // ✅ Matches your HTML
-
+const backBtn = document.getElementById("back");
 let selectedUserId = null;
 
 // -------------------- AUTH CHECK --------------------
@@ -44,46 +43,54 @@ onAuthStateChanged(auth, (user) => {
     console.log(`✅ Admin logged in as: ${user.email}`);
     loadUsers();
   } else {
-    console.warn("⚠️ Not authenticated, redirecting to admin-login.html");
+    console.warn("⚠️ Not authenticated, redirecting to login page...");
     window.location.href = "index.html";
   }
 });
 
 // -------------------- LOAD USERS --------------------
 function loadUsers() {
-  console.log("📥 Loading users from /chats/");
-  const usersRef = ref(db, "chats/");
+  console.log("📥 Loading users from /users/");
+  const usersRef = ref(db, "users/");
 
   onValue(usersRef, (snapshot) => {
     userList.innerHTML = "";
     if (!snapshot.exists()) {
-      console.warn("⚠️ No users found in chats/");
+      console.warn("⚠️ No users found in /users/");
       userList.innerHTML = "<p>No users yet.</p>";
       return;
     }
 
     snapshot.forEach((childSnapshot) => {
       const userId = childSnapshot.key;
-      const meta = childSnapshot.val().name || "User";
+      const userData = childSnapshot.val() || {};
+
+      const username = userData.username || null;
+      const email = userData.email || null;
+      const displayName = username || email || `User (${userId.slice(0, 6)}...)`;
 
       const userItem = document.createElement("div");
-      userItem.textContent = `${meta} (${userId})`;
+      userItem.textContent = displayName;
       userItem.classList.add("user-item");
+
       userItem.addEventListener("click", () => {
         selectedUserId = userId;
-        console.log(`💬 Selected user: ${userId}`);
+        console.log(`💬 Selected user: ${displayName} (${userId})`);
         loadMessages(userId);
       });
+
       userList.appendChild(userItem);
     });
 
-    console.log("✅ Users loaded successfully");
+    console.log("✅ All users displayed successfully");
+  }, (error) => {
+    console.error("❌ Error reading /users/:", error);
   });
 }
 
 // -------------------- LOAD MESSAGES --------------------
 function loadMessages(userId) {
-  console.log(`🗨️ Loading messages for user: ${userId}`);
+  console.log(`💭 Loading messages for user: ${userId}`);
   const msgsRef = ref(db, `chats/${userId}/messages/`);
 
   onValue(msgsRef, (snapshot) => {
@@ -95,14 +102,23 @@ function loadMessages(userId) {
     }
 
     snapshot.forEach((msgSnap) => {
-      const msg = msgSnap.val();
+      const msg = msgSnap.val() || {};
+      const sender =
+        msg.sender && msg.sender !== "undefined"
+          ? msg.sender
+          : "User"; // <-- Fix undefined sender here
+      const text = msg.text || "";
+
       const msgDiv = document.createElement("div");
-      msgDiv.classList.add(msg.sender === "admin" ? "admin-msg" : "user-msg");
-      msgDiv.textContent = `${msg.sender}: ${msg.text}`;
+      msgDiv.classList.add(sender === "admin" ? "admin-msg" : "user-msg");
+      msgDiv.textContent = `${sender}: ${text}`;
       chatBox.appendChild(msgDiv);
     });
 
     chatBox.scrollTop = chatBox.scrollHeight;
+    console.log(`✅ Messages loaded for ${userId}`);
+  }, (error) => {
+    console.error(`❌ Error loading messages for ${userId}:`, error);
   });
 }
 
@@ -130,6 +146,6 @@ sendBtn.addEventListener("click", () => {
 
 // -------------------- BACK BUTTON --------------------
 backBtn.addEventListener("click", () => {
-  console.log("🔙 Returning to main site...");
-  window.location.href = "web.html"; // ✅ change this if your main page has a different name
+  console.log("⬅️ Returning to main site...");
+  window.location.href = "web.html";
 });

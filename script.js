@@ -29,7 +29,10 @@ onAuthStateChanged(auth, async (user) => {
     const userRef = ref(db, 'users/' + user.uid);
     const snapshot = await get(userRef);
     if (!snapshot.exists()) {
+      let fullName = localStorage.getItem("fullName") || "Anonymous";
+
       await set(userRef, {
+        fullName: fullName,
         email: user.email,
         uid: user.uid,
         joinedAt: new Date().toISOString()

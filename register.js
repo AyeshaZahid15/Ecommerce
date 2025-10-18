@@ -54,6 +54,8 @@ form.addEventListener("submit", async (event) => {
       joinedAt: new Date().toISOString()
     });
 
+    localStorage.setItem("fullName", fullName);
+
     alert("Registration successful! Welcome, "+ fullName);
     window.location.href = "index.html";  //Redirect to login page
   }catch (error) {
